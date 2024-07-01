@@ -1,0 +1,87 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <!-- <div style="display: flex; flex-direction: column;  gap: 10px ;">
+                <div class=" bank">
+                    
+                    
+                        <a href="/donor" style="text-decoration: none; color: rgb(29, 24, 57);"><div class="bank-btns">Donor Registration</div></a>
+                
+                
+                
+                        <a href="/findDonor" style="text-decoration: none; color: rgb(29, 24, 57);"> <div class="bank-btns">Find Dono</div></a>
+                    
+                </div> -->
+            <% if(info && info.length >0){%>
+
+                <div style="width: 100%; display: flex; justify-content: center; height: 90vh;">
+                    <div style="font-size: 60px; font-weight: 500; color: rgb(111, 127, 142); margin-top: 100px; ">You have Already Registered</div>
+                </div>
+                
+
+
+                <%} else{%>
+                    <div class="form-back">
+                        <div class="col-6 offset-3 form">
+                        <h1>Donor registration</h1>
+            <form action="/donor" method="post" class="needs-validation" novalidate >
+                <div>
+                <input type="text" name="name" placeholder="Enter your name" required class="form-control">
+                <div class="invalid-feedback">Please enter your name</div>
+            </div>
+                <br>
+                <div>
+                <input type="email" name="email" placeholder="Enter email"  required class="form-control">
+                <div class="invalid-feedback">Please enter your Email</div>
+            </div>
+            <br>
+                <div>
+                <input type="number" name="contact" placeholder="Enter your contact number" required class="form-control">
+                <div class="invalid-feedback">Please enter your contact number</div>
+            </div>
+            <br>
+
+            <div>
+                <input type="number" placeholder="Enter your age" name ="age" required class="form-control">
+                <div class="invalid-feedback">Please enter your age</div>
+            </div>
+            <br>
+
+            <div>
+                <label for="blood-Group">Choose blood-Group</label>
+                <select id="BloodGrp" name="bloodGroup" required class="form-control">
+                <option value="">--Please choose an option--</option>
+                <option value="O-positive">O-positive</option>
+                <option value="O-negative">O-negative</option>
+                <option value="A-positive">A-positive</option>
+                <option value="A-negative">A-negative</option>
+                <option value="B-positive">B-positive</option>
+                <option value="B-negative">B-negative</option>
+                <option value="AB-positive">AB-positive</option>
+                <option value="AB-negative">AB-negative</option>
+                </select>
+                <div class="invalid-feedback">Please choose your blood group</div>
+            </div>
+            <br>
+
+            <div>
+                <textarea name="address"  cols="100" rows="2" placeholder="enter your address" required class="form-control"></textarea>
+                <div class="invalid-feedback">Please enter your address</div>
+        </div>
+        <br>
+
+        <div>
+                <input type="text" name="city" placeholder="Enter your city" required class="form-control">
+                <div class="invalid-feedback">Please enter your City</div>
+            </div>
+            <br>
+
+                <input type="date" name="date" placeholder="Enter last date of donation " class="form-control">
+                <br>
+
+                <button class="btn search-btn">Submit</button>
+            </form>
+        </div>
+        </div>
+<% }  %>
+</div>
+</body>

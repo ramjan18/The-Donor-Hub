@@ -1,0 +1,60 @@
+<% layout('/layouts/boilerplate') -%>
+<body >
+    <div class="col-10 offset-1 " style="min-height: 90vh;" >
+        <div class="col-6 offset-3">
+        <div class="search-donor" >
+            <h1 style="color:rgb(29, 24, 57) ; font-weight: 800;">Find Your Nearest Donor</h1>
+            <form style="display: flex; gap: 10px;">
+            
+                <select id="BloodGrp" name="bloodGroup"  class="form-control">
+                <option value="">Choose a Blood Group </option>
+                <option value="O-positive">O-positive</option>
+                <option value="O-negative">O-negative</option>
+                <option value="A-positive">A-positive</option>
+                <option value="A-negative">A-negative</option>
+                <option value="B-positive">B-positive</option>
+                <option value="B-negative">B-negative</option>
+                <option value="AB-positive">AB-positive</option>
+                <option value="AB-negative">AB-negative</option>
+                </select>
+
+                <input type="text" name="city" placeholder="Enter city name" class="form-control">
+
+                <button class="btn search-btn">Search</button>
+            </form>
+       </div>
+
+    <div>
+        <%  if(allDonor && allDonor.length >0){%>
+       <% allDonor.map((newDonor) =>{ %>
+            <div class="donor">
+                <div>
+                <div>Name : <%= newDonor.name %></div>
+                <div>age : <%= newDonor.age %></div>
+                <div>Blood Group : <%= newDonor.bloodGroup %></div>
+                <div>address : <%= newDonor.address %></div>
+                <div>city : <%= newDonor.city %></div>
+
+                <% if(newDonor.lastDate == null ){%>
+                    <div style="color: green; font-weight: 600;">available</div>
+                    <%  }  else if((date1-(newDonor.lastDate.getTime()))/86400000 >30 ){ %>
+                
+                    <div style="color: green; font-weight: 600;">available</div>
+                  <% }  else { %>
+                  
+                    <div style="color: red; font-weight: 600;">Unavailable</div>
+                    <% } %>
+
+                <a href="/findDonor/<%= newDonor.id %>" style="text-decoration: none; "> <div class="btn search-btn " style="margin-bottom: 10px;">View More </div></a>
+              </div>
+            </div>
+        <%  }) %>
+        <%  } else {%>
+            <div style="width: 100%; display: flex; justify-content: center;">
+            <div style="font-size: 60px; font-weight: 500; color: rgb(111, 127, 142); margin-top: 100px; ">No Donor Found</div>
+        </div>
+            <%  } %>
+    </div>
+</div>
+</div>
+</body>

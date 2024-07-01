@@ -1,0 +1,47 @@
+<% layout('/layouts/boilerplate') -%>
+
+<script > 
+    const mapToken = "<%= process.env.MAP_TOKEN %>"; 
+   const coordinates = <%- JSON.stringify(data.geometry.coordinates) %> ;
+</script> 
+<body>
+    <div class="camp-details">
+    <div class="camp-details-info">
+        <div><i><%= data.camp_Name%></i></div>
+        <div>State : <%= data.state%></div>
+        <div>District : <%= data.district%></div>
+        <div>Contact Number : <%= data.contact%></div>
+        <div>Address : <%= data.address%></div>
+        <div>Date : <%= data.campDate%></div>
+        <div>Organised By : <%= data.organised_By%></div>
+        <div>conducted By : <%= data.conducted_By%></div>
+    </div>
+</div>
+<hr>
+<div class="map">
+    <div>
+        <h1>Location of camp</h1>
+        <div id="map"></div>
+    </div>
+</div>
+
+
+<script>
+    mapboxgl.accessToken = "pk.eyJ1IjoicmFtamFuMTIzIiwiYSI6ImNsdno4aGZxZjFkNHUya29nYmt0dDd4ajEifQ.JdkskOAcHzonPUepYdyQcA";
+ //  console.log(mapToken);
+ console.log(coordinates);
+ const map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style : "mapbox://styles/mapbox/streets-v11",
+    center: coordinates, // starting position [lng, lat]
+    zoom: 10 // starting zoom
+ });
+ 
+ 
+ const marker = new mapboxgl.Marker()
+         .setLngLat(coordinates)
+         .addTo(map);
+ 
+ </script>
+
+</body>

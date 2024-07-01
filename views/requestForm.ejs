@@ -1,0 +1,15 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="req-page" style="min-height: 80vh;">
+    <form action="/findDonor/<%=id%>/request" method="post" class="col-4 offset-4 req-form">
+        <h2>Enter Details</h2>
+        <input type="text" name="name" placeholder="Enter Recipients Name" required class="form-control">
+        <br>
+        <input type="text" name="address" placeholder="Enter Address" required class="form-control">
+        <br>
+        <input type="text" name="contact_No" placeholder="Enter contact number" required class="form-control">
+        <br>
+        <button class="btn req-btn">Send Request</button>
+    </form>
+</div>
+</body>

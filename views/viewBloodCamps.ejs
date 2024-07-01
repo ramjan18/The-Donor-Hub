@@ -1,0 +1,25 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div style="min-height: 85vh;">
+        
+        <form action="" class="col-4 offset-4">
+            <div class="camp-search" >
+            <input type="text" name="district" id="" placeholder="Enter District" class="form-control">
+            <button><i class="fa fa-search"></i></i></button>
+   
+            </div>
+        </form>
+<hr>
+        <div class="col-6 offset-3">
+           <%data.map((camp)=>{%>
+            <div class="camp-page">
+              <div><i><%= camp.camp_Name%></i></div>
+              <div>District : <%= camp.district%></div>
+              <div>Address : <%= camp.address%></div>
+              <div>Date : <%= camp.campDate%></div>
+              <a href="/viewBloodCamp/<%=camp.id%>"><button class="btn">View Details</button></a>
+            </div>
+         <%  }) %>
+        </div>
+    </div>
+</body>

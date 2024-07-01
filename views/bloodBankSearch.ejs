@@ -1,0 +1,56 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="col-10 offset-1" style="min-height: 660px; background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(8,94,117,1) 0%, rgba(122,210,228,1) 100%); padding: 20px; ">
+    <div class="col-8 offset-2 " >
+       
+      <div style="display: flex; flex-direction: column;  gap: 10px ; width: 100%;">
+        <div  >
+            <div class=" bank">
+                
+                
+                    <a href="/bloodBank/bloodBankRegistration" style="text-decoration: none; color: rgb(29, 24, 57);"><div class="bank-btns">Blood Bank registration</div></a>
+              
+            
+              
+                    <a href="/bloodBank/bloodBankSearch" style="text-decoration: none; color: rgb(29, 24, 57);"> <div class="bank-btns">Search for Blood Bank</div></a>
+                
+            </div>
+      
+          
+            <div>
+                  <form action="" class="search-donor">
+                    <h1 style="color:rgb(29, 24, 57) ; font-weight: 800;">Find nearest blood bank</h1>
+                    <div style="display: flex; gap: 20px;">
+                        
+                        <input type="text" placeholder="District" name="district" class="form-control">
+                        <input type="text" placeholder="Enter city" name="city" class="form-control">
+            
+                        <button class="btn btn-dark">search</button>
+                    </div>
+                  </form>
+              <hr>
+          </div>
+        </div>
+
+            <div >
+               <% for(bank of allBanks){ %>
+                    <div class="bloodBank-info">
+                       <div>Name : <%= bank.bloodBankName %> </div>
+                       <div>category : <%= bank.category %> </div>
+                       <div>City : <%= bank.city %> </div>
+                       <div>State : <%= bank.state %> </div>
+                       <div>District : <%= bank.district %> </div>
+                       <div>Email : <%= bank.email %> </div>
+                       <div>licence No : <%= bank.licence_No %> </div>
+                       
+                       <a href="/bloodBank/bloodBankSearch/<%= bank.id %>"><div class="btn search-btn">view more</div></a>
+                    </div>
+                <%  } %>
+                </div>
+        </div>
+      
+        
+    </div>
+</div>
+</body>

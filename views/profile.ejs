@@ -1,0 +1,47 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <% if(info && info.length >0){%>
+        <div class="profile_user">
+            
+            <img src="/photos/image4.webp" class="profile-img" alt="">
+            <div style="display: flex; justify-content: center;">
+                <div class="profile2" >
+                <% info.map((data)=>{%>
+                    <div>
+                            <div>Name : <%= data.name %></div>
+                            <div>Email Address : <%= data.email %></div>
+                            <div>contact : <%= data.contact %></div>
+                            <div>Blood Group : <%= data.bloodGroup %></div>
+                            <div>age : <%= data.age %></div>
+                            <div>address : <%= data.address %></div>
+                            <div>city : <%= data.city %></div>
+                            <div>Last date of donation : <%= data.lastDate %></div>
+                            <br>
+                            <div style="display: flex; gap: 20px;">
+                                <a href="/profile/<%=data.owner%>/edit"><button class="btn home-btn">Edit</button></a>
+                                <form action="/profile/<%=data.owner%>?_method=DELETE" method="post">
+                                    <button class="btn home-btn">Delete</button>
+                                </form>
+                            </div>
+                   </div>
+                <% })%>
+            </div>
+        </div>
+    </div>
+    <% } else{%>
+            <div class="profile_user"  >
+               
+                <img src="/photos/image4.webp" class="profile-img" alt="">
+            <div style="display: flex; justify-content: center;">
+                <div  class="profile2" style="display: flex; flex-direction:column;">
+                <img src="/photos/user1.avif" height="200" alt="">
+                <div>Username : <%= owner.username%></div>
+                <div>Email : <%= owner.email%></div>
+
+            </div>
+          </div>
+        </div>
+   
+        <% }%>
+    
+</body>

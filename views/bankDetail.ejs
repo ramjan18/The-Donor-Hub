@@ -1,0 +1,57 @@
+<% layout('/layouts/boilerplate') -%>
+
+
+ <script > 
+     const mapToken = "<%= process.env.MAP_TOKEN %>"; 
+    const coordinates = <%- JSON.stringify(data.geometry.coordinates) %> ;
+</script> 
+
+<body>
+   <div style="display: flex; justify-content: center;">
+        <div class="bank-detail">
+         <div style="width: 100%; display: flex; justify-content: center;">
+           <img src="/photos/bank.jpg" alt="">
+         </div>
+           <div>Name : <%= data.bloodBankName %> </div>
+           <div>category : <%= data.category %> </div>
+           <div>Phone No : <%= data.phone_number %> </div>
+           <div>Email : <%= data.email %> </div>
+           <div>State : <%= data.state %> </div>
+           <div>District : <%= data.district %> </div>
+           <div>City : <%= data.city %> </div>
+           <div>Address : <%= data.address %> </div>
+           <div>licence No : <%= data.licence_No %> </div>
+           <div>Pincode : <%= data.pincode %> </div>
+           
+           <% if(currUser && currUser._id.equals(data.owner)){ %>
+           <a href="/bloodBank/bloodBankSearch/<%=data.id%>/edit"><button class="btn home-btn">Edit</button></a>
+           <% }%>
+        </div>
+       
+</div>
+<hr>
+ <div class="map" >
+   <div>
+     <h1>Location of Blood Bank </h1> 
+      <div id="map"></div>
+   </div>
+</div>
+<script>
+   mapboxgl.accessToken = "pk.eyJ1IjoicmFtamFuMTIzIiwiYSI6ImNsdno4aGZxZjFkNHUya29nYmt0dDd4ajEifQ.JdkskOAcHzonPUepYdyQcA";
+//  console.log(mapToken);
+console.log(coordinates);
+const map = new mapboxgl.Map({
+   container: 'map', // container ID
+   style : "mapbox://styles/mapbox/streets-v11",
+   center: coordinates, // starting position [lng, lat]
+   zoom: 10 // starting zoom
+});
+
+
+const marker = new mapboxgl.Marker()
+        .setLngLat(coordinates)
+        .addTo(map);
+
+</script>
+ 
+</body>

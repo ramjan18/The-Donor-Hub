@@ -1,0 +1,18 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+
+    <div class="col-6 offset-3 " style="min-height: 80vh;">
+        <div class="donor-detail">
+            <div><b> Name : </b><%= data.name %></div>
+            <div><b>Email Address :</b> <%= data.email %></div>
+            <div><b>contact :</b> <%= data.contact %></div>
+            <div><b>Blood Group :</b> <%= data.bloodGroup %></div>
+            <div><b>age :</b> <%= data.age %></div>
+            <div><b>address :</b> <%= data.address %></div>
+            <div><b>city :</b> <%= data.city %></div>
+            <div><b>Last date of donation :</b> <%= data.lastDate %></div>
+            <a href="/findDonor/<%=data.id%>/request"><div class="btn req-btn">send request</div></a>
+        </div>
+</div>
+
+</body>

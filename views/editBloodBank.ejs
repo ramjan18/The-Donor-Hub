@@ -1,0 +1,60 @@
+<% layout('/layouts/boilerplate') -%>
+<body>
+    <div class="form-back ">
+    <div class="form col-8 offset-2">
+    <form action="/bloodBank/bloodBankSearch/<%=data.id%>/edit?_method=PUT" method="post">
+
+        <h2>Blood bank Details</h2> 
+ 
+             <label for="bloodBankName">Blood Bank Name</label>
+             <input type="text" name="bloodBankName" value="<%=data.bloodBankName%>" id="bloodBankName" required class="form-control">
+ 
+             <label for="Category">Choose Category</label>
+             <select id="Category" name="Category" class="form-control">
+                 <option value="<%=data.category%>"><%=data.category%></option>
+                 <option value="Governoment">Governoment</option>
+                 <option value="Charitable">Charitable</option>
+                 <option value="Private">Private</option>
+             </select>
+ 
+             <label for="phone-number">Phone number</label>
+             <input type="number" name="phone_number" value="<%=data.phone_number%>" id="phone-number" class="form-control">
+ 
+             <label for="Email">Email</label>
+             <input type="email" name="email" value="<%=data.email%>" id="Email" class="form-control">
+     
+             <label for="Licence No.">Licence Number</label>
+             <input type="text" name="Licence_No" value="<%=data.licence_No%>" id="Licence No." class="form-control">  
+       
+         
+       <br>
+ 
+             <legend>Blood Bank Address</legend>
+ 
+             <label for="State">State</label>
+             <input type="text" name="State" value="<%=data.state%>" id="State" required class="form-control">
+ 
+             <label for="District">District</label>
+             <input type="text" name="District" value="<%=data.district%>" id="District" required class="form-control">
+ 
+             <label for="City">City</label>
+             <input type="text" name="City" value="<%=data.city%>" id="City" required class="form-control">
+ 
+     
+              <br>
+ 
+     
+             <legend>Postal Address</legend>
+ 
+             <label for="Address1">Address</label>
+             <input type="text" name="Address" value="<%=data.address%>" id="Address1" required class="form-control">
+ 
+ 
+             <label for="Pincode">Pincode</label>
+             <input type="text" name="Pincode" value="<%=data.pincode%>" id="Pincode" required class="form-control">
+          <br>
+        <div><button class="btn search-btn">submit</button></div>
+     </form>
+    </div>
+</div>
+</body>
